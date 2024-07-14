@@ -510,21 +510,6 @@ function test_compiler_cxx2b()
 
 function build_xar()
 {
-  pushd $BUILD_DIR &>/dev/null
-
-  get_sources https://github.com/tpoechtrager/xar.git master
-
-  if [ $f_res -eq 1 ]; then
-    pushd $CURRENT_BUILD_PROJECT_NAME/xar &>/dev/null
-    CFLAGS+=" -w" \
-      ./configure --prefix=$TARGET_DIR
-    $MAKE -j$JOBS
-    $MAKE install -j$JOBS
-    popd &>/dev/null
-    build_success
-  fi
-
-  popd &>/dev/null
 }
 
 function build_p7zip()
